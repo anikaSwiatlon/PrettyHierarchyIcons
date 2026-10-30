@@ -24,6 +24,10 @@ public static partial class PrettyHierarchy
         EditorApplication.projectChanged -= OnProjectChanged;
         EditorApplication.projectChanged += OnProjectChanged;
 
+#if UNITY_6000_6_OR_NEWER
+        RegisterHierarchyWindowCallbacks();
+#endif
+
         LoadSettings();
 
         EditorApplication.RepaintHierarchyWindow();
@@ -35,8 +39,14 @@ public static partial class PrettyHierarchy
         EditorApplication.RepaintHierarchyWindow();
     }
 
+    private static bool isCreatingSettings;
+
     private static void LoadSettings()
     {
+        // CreateAsset raises projectChanged synchronously, which re-enters here.
+        if (isCreatingSettings)
+            return;
+
         string[] guids = AssetDatabase.FindAssets("t:HierarchyIconSettings");
 
         if (guids.Length == 0)
@@ -57,13 +67,27 @@ public static partial class PrettyHierarchy
         const string folderPath = "Assets/Editor";
         const string assetPath = "Assets/Editor/PrettyHierarchySettings.asset";
 
-        if (!AssetDatabase.IsValidFolder(folderPath))
-            AssetDatabase.CreateFolder("Assets", "Editor");
+        settings = AssetDatabase.LoadAssetAtPath<HierarchyIconSettings>(assetPath);
 
-        settings = ScriptableObject.CreateInstance<HierarchyIconSettings>();
+        if (settings != null)
+            return;
 
-        AssetDatabase.CreateAsset(settings, assetPath);
-        AssetDatabase.SaveAssets();
+        isCreatingSettings = true;
+
+        try
+        {
+            if (!AssetDatabase.IsValidFolder(folderPath))
+                AssetDatabase.CreateFolder("Assets", "Editor");
+
+            settings = ScriptableObject.CreateInstance<HierarchyIconSettings>();
+
+            AssetDatabase.CreateAsset(settings, assetPath);
+            AssetDatabase.SaveAssets();
+        }
+        finally
+        {
+            isCreatingSettings = false;
+        }
 
         Debug.Log($"Created Pretty Hierarchy settings automatically at '{assetPath}'.");
     }

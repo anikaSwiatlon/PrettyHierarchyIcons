@@ -1,5 +1,7 @@
 # Pretty Hierarchy
 
+A fork of [PrettyHierarchy](https://github.com/gavwood/PrettyHierarchy) by Gavin Wood / baawolf, published under the MIT license.
+
 Create a cleaner, more readable Unity Hierarchy with custom icons, coloured section separators, and automatic component-based icon assignment.
 
 Pretty Hierarchy lets you:
@@ -60,6 +62,13 @@ Any GameObject containing that component will automatically display the configur
 
 ---
 
+## Compatibility
+
+- Unity 2021.3 or newer.
+- Works with the legacy Hierarchy window and with the new Hierarchy window in Unity 6000.6+.
+
+---
+
 ## Installation
 
 ### Via Git URL
@@ -69,7 +78,7 @@ Open `Packages/manifest.json` and add:
 ```json
 {
   "dependencies": {
-    "com.baawolf.prettyhierarchy": "https://github.com/gavwood/PrettyHierarchy.git"
+    "com.anikaswiatlon.prettyhierarchyicons": "https://github.com/anikaSwiatlon/PrettyHierarchyIcons.git"
   }
 }
 ```
@@ -81,7 +90,7 @@ Or use:
 and enter:
 
 ```text
-https://github.com/gavwood/PrettyHierarchy.git
+https://github.com/anikaSwiatlon/PrettyHierarchyIcons.git
 ```
 
 ---
@@ -107,6 +116,8 @@ In the Hierarchy:
 **Right-click the icon area on any row**
 
 This opens the Pretty Hierarchy editor window for the selected object.
+
+In the new Hierarchy window (Unity 6000.6+) you can also right-click a row and choose **Pretty Hierarchy...**.
 
 ---
 
@@ -205,4 +216,6 @@ You can also use your own textures.
 
 MIT License
 
-Copyright © 2026 BaaWolf
+Copyright © 2026 anikaSwiatlon
+
+Based on PrettyHierarchy by Gavin Wood / BaaWolf, MIT licensed.

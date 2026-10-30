@@ -155,12 +155,10 @@ public sealed class HierarchyIconSettings : ScriptableObject
             if (type != null)
                 return type;
 
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            foreach (var derivedType in TypeCache.GetTypesDerivedFrom<object>())
             {
-                type = assembly.GetType(typeName);
-
-                if (type != null)
-                    return type;
+                if (derivedType.FullName == typeName)
+                    return derivedType;
             }
 
             return null;

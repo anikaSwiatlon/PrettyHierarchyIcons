@@ -1,27 +1,29 @@
 {
-  "name": "com.baawolf.prettyhierarchy",
+  "name": "com.anikaswiatlon.prettyhierarchyicons",
   "displayName": "PrettyHierarchy",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "unity": "2021.3",
-  "description": "Fixed Preset Override Persistence> Fixed preset override persistence so manual object customisations are preserved after project reloads while preset-linked objects continue to inherit preset updates.",
+  "description": "Fork of PrettyHierarchy (by Gavin Wood / baawolf). Custom icons, coloured separators and component-based icons for the Unity Hierarchy. Supports the new Hierarchy window in Unity 6000.6+ and fixes a stack overflow when the settings asset is created automatically.",
   "keywords": [
     "unity",
     "unity3d",
     "upm",
-    "baawolf",
+    "prettyhierarchy",
+    "hierarchy",
+    "icons",
     "utility"
   ],
-  "homepage": "https://github.com/gavwood/PrettyHierarchy.git",
+  "homepage": "https://github.com/anikaSwiatlon/PrettyHierarchyIcons",
   "bugs": {
-    "url": "https://github.com/gavwood/PrettyHierarchy/issues"
+    "url": "https://github.com/anikaSwiatlon/PrettyHierarchyIcons/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/baawolf/PrettyHierarchy.git"
+    "url": "https://github.com/anikaSwiatlon/PrettyHierarchyIcons.git"
   },
   "license": "MIT",
-  "author": "BaaWolf (https://baawolf.com)",
-  "changelogUrl": "https://github.com/gavwood/PrettyHierarchy/blob/main/CHANGELOG.md",
+  "author": "anikaSwiatlon (fork of PrettyHierarchy by Gavin Wood / BaaWolf)",
+  "changelogUrl": "https://github.com/anikaSwiatlon/PrettyHierarchyIcons/blob/main/CHANGELOG.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

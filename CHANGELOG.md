@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.2] - Fork Release
+
+Fork of [PrettyHierarchy](https://github.com/gavwood/PrettyHierarchy) by Gavin Wood / baawolf (MIT licensed).
+
+- Added support for the new UI Toolkit Hierarchy window in Unity 6000.6+. Custom icons, colour bars, colour icon slots, the "+" hint, right-click to open the Pretty Hierarchy window and double-click to open scripts all work there. The legacy Hierarchy window is still supported.
+- Added a **Pretty Hierarchy...** entry to the row context menu in the new Hierarchy window.
+- Fixed an editor stack overflow (`InsufficientExecutionStackException`) when the settings asset was created automatically.
+- Fixed assembly referencing issues.
+- Updated package metadata to point at this fork for installation.
+
 ## [1.2.1] - Fixed Preset Override Persistence
 
 Preset-applied hierarchy rows now behave like linked presets until manually edited.
